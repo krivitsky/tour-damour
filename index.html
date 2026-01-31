@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tour D'Amour - Das neue Musical von Joy C. Green. Premiere am 26. & 27. Juni 2026 in der KulturEtage Messestadt München.">
+  <title>Tour D'Amour | Musical 2026</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-bg: #0a0612;
+      --color-bg-light: #1a1025;
+      --color-neon-pink: #ff2d8a;
+      --color-neon-pink-glow: rgba(255, 45, 138, 0.4);
+      --color-gold: #d4a854;
+      --color-gold-light: #f0d490;
+      --color-purple: #6b3fa0;
+      --color-purple-dark: #2d1b4e;
+      --color-text: #ffffff;
+      --color-text-muted: rgba(255, 255, 255, 0.7);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Montserrat', -apple-system, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Utility */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: linear-gradient(to bottom, var(--color-bg), transparent);
+      transition: background 0.3s;
+    }
+
+    .header.scrolled {
+      background: rgba(10, 6, 18, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    .header__inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header__nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .header__nav a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .header__nav a:hover {
+      color: var(--color-neon-pink);
+    }
+
+    .header__nav a.nav-home {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--color-gold);
+      letter-spacing: 2px;
+      text-transform: none;
+    }
+
+    .header__nav a.nav-home:hover {
+      color: var(--color-gold-light);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(ellipse at top, var(--color-purple-dark) 0%, var(--color-bg) 60%);
+    }
+
+    .hero__poster {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero__poster img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 20px 60px rgba(255, 45, 138, 0.3), 0 0 100px rgba(107, 63, 160, 0.4);
+    }
+
+    .cast-image {
+      margin-bottom: 64px;
+      text-align: center;
+    }
+
+    .cast-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 100px rgba(255, 45, 138, 0.15);
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 120px 24px 80px;
+    }
+
+    .hero__presents {
+      font-size: 0.875rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 24px;
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--color-neon-pink), var(--color-gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 80px var(--color-neon-pink-glow);
+    }
+
+    .hero__subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text-muted);
+      margin-bottom: 48px;
+    }
+
+    .hero__date {
+      display: inline-block;
+      padding: 16px 48px;
+      border: 2px solid var(--color-gold);
+      font-size: 1.125rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: var(--color-gold);
+      margin-bottom: 32px;
+    }
+
+    .hero__cta {
+      display: inline-block;
+      padding: 18px 48px;
+      background: linear-gradient(135deg, var(--color-neon-pink), #d4247a);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.3s;
+      box-shadow: 0 0 30px var(--color-neon-pink-glow);
+    }
+
+    .hero__cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px var(--color-neon-pink-glow);
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--color-text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* Section */
+    .section {
+      padding: 120px 0;
+    }
+
+    .section--dark {
+      background: var(--color-bg-light);
+    }
+
+    .section__header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section__label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--color-neon-pink);
+      margin-bottom: 16px;
+    }
+
+    .section__title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    /* Story */
+    .story {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .story p {
+      font-size: 1.125rem;
+      line-height: 1.9;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    .story p:first-of-type::first-letter {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      float: left;
+      line-height: 1;
+      padding-right: 16px;
+      color: var(--color-neon-pink);
+    }
+
+    .story__highlight {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--color-gold);
+      text-align: center;
+      padding: 48px 0;
+      border-top: 1px solid var(--color-purple-dark);
+      border-bottom: 1px solid var(--color-purple-dark);
+      margin: 48px 0;
+    }
+
+    /* Details Grid */
+    .details {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .details {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+    }
+
+    .detail-card {
+      background: linear-gradient(135deg, var(--color-purple-dark), transparent);
+      border: 1px solid rgba(107, 63, 160, 0.3);
+      padding: 40px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .detail-card:hover {
+      border-color: var(--color-neon-pink);
+      box-shadow: 0 0 30px rgba(255, 45, 138, 0.1);
+    }
+
+    .detail-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .detail-card__label {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+    }
+
+    .detail-card__value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-gold);
+    }
+
+    .detail-card__sub {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin-top: 8px;
+    }
+
+    /* Tickets */
+    .tickets {
+      text-align: center;
+    }
+
+    .tickets__box {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--color-purple-dark), var(--color-bg));
+      border: 2px solid var(--color-gold);
+      padding: 60px 80px;
+      margin-top: 32px;
+    }
+
+    .tickets__price-label {
+      font-size: 0.875rem;
+      letter-spacing: 2px;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+    }
+
+    .tickets__phone {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+    }
+
+    .tickets__phone a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .tickets__web {
+      color: var(--color-neon-pink);
+      text-decoration: none;
+      font-size: 0.875rem;
+      letter-spacing: 1px;
+    }
+
+    .tickets__web:hover {
+      text-decoration: underline;
+    }
+
+    /* Cast Call */
+    .cast-call {
+      background: linear-gradient(135deg, var(--color-neon-pink), #8b1a5c);
+      padding: 60px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .cast-call h3 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      margin-bottom: 16px;
+    }
+
+    .cast-call p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 24px;
+    }
+
+    .cast-call a {
+      color: white;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 60px 0;
+      text-align: center;
+      border-top: 1px solid var(--color-purple-dark);
+    }
+
+    .footer__logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+    }
+
+    .footer__credit {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+    }
+
+    .footer__credit a {
+      color: var(--color-neon-pink);
+      text-decoration: none;
+    }
+
+    .footer__copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header__nav {
+        display: none;
+      }
+
+      .tickets__box {
+        padding: 40px 32px;
+      }
+
+      .cast-call {
+        padding: 40px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <nav class="header__nav">
+        <a href="#" class="nav-home">Tour D'Amour</a>
+        <a href="#story">Story</a>
+        <a href="#details">Wann & Wo</a>
+        <a href="#tickets">Tickets</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__content">
+      <p class="hero__presents">Green Voices präsentiert</p>
+      <h1 class="hero__title">Tour D'Amour</h1>
+      <p class="hero__subtitle">Musik und andere Liebeleien</p>
+      <div class="hero__date">26. + 27. Juni 2026</div>
+      <br><br>
+      <a href="#tickets" class="hero__cta">Tickets sichern</a>
+      <div class="hero__poster">
+        <img src="img/poster.jpg" alt="Tour D'Amour Poster">
+      </div>
+    </div>
+    <div class="hero__scroll">Scroll</div>
+  </section>
+
+  <section class="section" id="story">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Die Geschichte</span>
+        <h2 class="section__title">Eine Band. Eine Tour. Alles auf Spiel.</h2>
+      </div>
+
+      <div class="story">
+        <p>
+          Es riecht nach Bier, Staub und großen Träumen. Eine Kneipe. Eine Bühne. Eine Band!
+          Tagsüber probt "Soul is US!" in Saschas Spelunke. Nachts wird geliebt, gestritten,
+          gesoffen und gesungen. Die Tänzerinnen bewegen sich durch den Raum wie Gedanken,
+          die man nicht mehr los wird.
+        </p>
+        <p>
+          Blicke kleben. Hände zögern. Alles schwingt. Akkorde treffen mitten ins Herz.
+          Und irgendwo zwischen Groove und Größenwahn beginnt alles zu brennen.
+        </p>
+
+        <div class="story__highlight">
+          "27 neue Songs, die brennen, verführen, zerlegen!"
+        </div>
+
+        <p>
+          Dann die Katastrophe: Harry Meloni, Frontman und Seele der Band, wird krank.
+          Seine Agentin Clara Furbo übernimmt — nicht aus Mitgefühl, sondern aus Kalkül.
+          Tournee statt Stillstand. Verträge statt Ausreden. Spielorte, an denen niemand fragt,
+          wie es dir geht — sondern nur, ob du funktionierst.
+        </p>
+        <p>
+          Ein Tourbus voller Spannungen. Eine Band, die keine Lüge duldet.
+          Tänzerinnen, die erzählen, was niemand ausspricht. Wird aus Chaos Kunst?
+          Aus Ego Gefühl? Aus einer Band eine Familie?
+        </p>
+        <p style="text-align: center; font-style: italic; color: var(--color-gold); font-size: 1.25rem;">
+          Komm mit auf Tour. Und fühl es selbst.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="details">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Premiere 2026</span>
+        <h2 class="section__title">Wann & Wo</h2>
+      </div>
+
+      <div class="cast-image">
+        <img src="img/billboard.jpg" alt="Tour D'Amour Billboard">
+      </div>
+
+      <div class="details">
+        <div class="detail-card">
+          <div class="detail-card__icon">📅</div>
+          <div class="detail-card__label">Datum</div>
+          <div class="detail-card__value">26. & 27. Juni 2026</div>
+          <div class="detail-card__sub">Donnerstag & Freitag</div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card__icon">🕗</div>
+          <div class="detail-card__label">Einlass</div>
+          <div class="detail-card__value">20:00 Uhr</div>
+          <div class="detail-card__sub">Türöffnung 19:30</div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-card__icon">📍</div>
+          <div class="detail-card__label">Location</div>
+          <div class="detail-card__value">KulturEtage</div>
+          <div class="detail-card__sub">Messestadt Riem, München</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tickets">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__label">Jetzt buchen</span>
+        <h2 class="section__title">Tickets</h2>
+      </div>
+
+      <div class="tickets">
+        <div class="tickets__box">
+          <div class="tickets__price-label">Reservierung unter</div>
+          <div class="tickets__phone"><a href="tel:+4989998868930">089 9988 68930</a></div>
+          <a href="https://www.kulturzentrummessestadt.de" target="_blank" class="tickets__web">
+            www.kulturzentrummessestadt.de
+          </a>
+        </div>
+
+        <div class="cast-call">
+          <h3>Wir suchen noch!</h3>
+          <p>Engagierte Licht- und Tonmenschen für unser Team</p>
+          <p>
+            <a href="tel:+498969341606">089 / 6934 1606</a> ·
+            <a href="mailto:info@greenvoices.de">info@greenvoices.de</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__logo">Tour D'Amour</div>
+      <p class="footer__credit">
+        Ein Musical von <a href="https://www.greenvoices.de" target="_blank">Joy C. Green</a>
+      </p>
+      <p class="footer__credit">
+        Eine Produktion von <a href="https://www.greenvoices.de" target="_blank">GREEN VOICES</a>
+      </p>
+      <p class="footer__copy">&copy; 2026 Green Voices. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+
+        if (targetId === '#') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+
+        const target = document.querySelector(targetId);
+        if (target) {
+          const headerHeight = header.offsetHeight;
+          const targetPosition = target.offsetTop - headerHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
