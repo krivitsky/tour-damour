@@ -110,7 +110,7 @@
 
     /* Hero */
     .hero {
-      min-height: 100vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -151,7 +151,7 @@
       position: relative;
       z-index: 1;
       text-align: center;
-      padding: 120px 24px 80px;
+      padding: 80px 24px 80px;
     }
 
     .hero__presents {
@@ -215,22 +215,6 @@
       box-shadow: 0 0 50px var(--color-neon-pink-glow);
     }
 
-    .hero__scroll {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--color-text-muted);
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(10px); }
-    }
 
     /* Section */
     .section {
@@ -519,7 +503,6 @@
         <img src="img/poster.jpg" alt="Tour D'Amour Poster">
       </div>
     </div>
-    <div class="hero__scroll">Scroll</div>
   </section>
 
   <section class="section" id="story">
