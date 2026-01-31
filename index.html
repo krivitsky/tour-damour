@@ -450,7 +450,16 @@
     /* Responsive */
     @media (max-width: 768px) {
       .header__nav {
-        display: none;
+        gap: 16px;
+      }
+
+      .header__nav a {
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+      }
+
+      .header__nav a.nav-home {
+        font-size: 1rem;
       }
 
       .tickets__box {
@@ -459,6 +468,28 @@
 
       .cast-call {
         padding: 40px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        padding: 12px 0;
+      }
+
+      .header__nav {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .header__nav a {
+        font-size: 0.65rem;
+      }
+
+      .header__nav a.nav-home {
+        width: 100%;
+        text-align: center;
+        font-size: 0.9rem;
       }
     }
   </style>
